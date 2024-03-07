@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA Gym</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        nav {
+            margin-top: -12%;
+            font-weight: bold
+            
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+            
+        }
+
+        nav a:hover {
+            color: #f00;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            padding-top: 17%;
+        }
+
+        header h2 {
+            font-size: 20px;
+            margin-bottom: 2rem;
+        }
+
+        header p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #f00;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c00;
+        }
+
+        /* Section styles */
+        section {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Process section */
+        .process {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-item {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+            border-radius: 5px;
+            width: 200px;
+            transition: background-color 0.3s;
+        }
+
+        .process-item:hover {
+            background-color: #e5e5e5;
+        }
+
+        .process-item i {
+            font-size: 3rem;
+            color: #f00;
+            margin-bottom: 1rem;
+        }
+
+        /* Stats section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+            border-radius: 5px;
+            width: 150px;
+            transition: background-color 0.3s;
+        }
+
+        .stat:hover {
+            background-color: #e5e5e5;
+        }
+
+        .stat i {
+            font-size: 2rem;
+            color: #f00;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing section */
+        .pricing {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2%;
+            padding-right: 2%;
+        }
+
+        .pricing-plan {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+            border-radius: 5px;
+            width: 300px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .pricing-plan:hover {
+            background-color: #e5e5e5;
+            transform: translateY(-5px);
+        }
+
+        .pricing-plan h2 {
+            margin-bottom: 1rem;
+        }
+
+        .pricing-plan h3 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-plan ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-plan li {
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-plan button {
+            background-color: #f00;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pricing-plan button:hover {
+            background-color: #c00;
+        }
+
+        .pricing-plan.featured {
+            background-color: #f00;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .pricing-plan.featured button {
+            background-color: #fff;
+            color: #f00;
+        }
+
+        /* Keep in Touch section */
+        .keep-in-touch {
+            background-color: #333;
+            color: #fff;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .keep-in-touch h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #f00;
+        }
+        .contact-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #f5f5f5;
+        }
+    
+        .contact-form h2 {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+        }
+    
+        .contact-form p {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+        }
+    
+        .contact-form form {
+        flex-basis: 50%;
+        padding-right: 20px;
+        }
+    
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        }
+    
+        .contact-form button {
+        background-color: #ff5a5f;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+    
+        .contact-image {
+        flex-basis: 50%;
+        }
+    
+        .contact-image img {
+        max-width: 100%;
+        height: auto;
+        }
+        /* Center the Contact Section */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px; /* Adjust based on your design */
+        }
+
+        /* Social Links Below Contact Form */
+        .social-links {
+            margin-top: 10px;
+            padding-bottom: 2%; /* Adjust as needed */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+            position: static;
+            bottom: 0;
+        }
+            /* Example for Facebook icon */
+        .social-links a.fa-facebook {
+            color: #3B5998; /* Facebook blue */
+        }
+
+        .social-links a.fa-facebook:hover {
+            color: #5073A1; /* Darker shade for hover */
+        }
+
+        /* Example for Twitter icon */
+        .social-links a.fa-twitter {
+            color: #1DA1F2; /* Twitter blue */
+        }
+
+        .social-links a.fa-twitter:hover {
+            color: #14171A; /* Darker shade for hover */
+        }
+        /* Define default color for social links */
+        .social-links a {
+            color: #333; /* Default color, adjust as needed */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+
+        /* Change color on hover */
+        .social-links a:hover {
+            color: #00B6F1; /* Example color for Twitter, adjust as needed */
+        }
+        .team-container {
+        display: flex; /* Arrange members horizontally */
+        flex-direction: row;
+        justify-content: space-between; /* Distribute space evenly */
+        flex-wrap: nowrap; /* Keep members in one line */
+        margin: 0 auto; /* Center horizontally */
+        margin-top: 5%;
+        max-width: 90%;
+        padding-bottom: 5%;
+        }
+
+        .team-member {
+        padding: 50px;
+        padding-left: 50px;
+        background-color: #fff; /* White background */
+        border-radius: 5px;
+        text-align: center;
+        margin: 0 5px;
+        width: calc(33.33% - 10px); /* Adjust width dynamically (3 members) */
+        transition: all 0.3s ease-in-out; /* Smooth transition for hover */
+        }
+
+        .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        }
+
+        .team-member p {
+        color: #666; /* Light gray text */
+        }
+
+        .heading {
+        font-size: 45px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: #007bff; /* Blue heading */
+        }
+        .heading-image {
+        /* Add styles for your heading image */
+        width: 30%; /* Adjust width as needed */
+        max-width: 400px; /* Optional maximum width */
+        margin-bottom: 0%;
+        margin-left: 30%; /* Adjust margin as needed */
+        padding-top: 5%;
+        }
+
+        /* Hover animations */
+        .team-member:hover {
+        background-color: #f5f5f5; /* Light gray on hover */
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+        transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media only screen and (max-width: 768px) {
+        .team-member {
+            width: 100%; /* Adjust width for smaller screens */
+        }
+        }
+
+
+/* Continue for other social icons */
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#our-process">Our Process</a>
+            <a href="#athlete-facts">Athlete Facts</a>
+            <a href="#MeetTheTeam">Meet The Team</a>
+            <a href="#Plans">Plans</a>
+            <a href="#contactUs">Contact Us</a>
+        </nav>
+        <h1>AI FITNESS WEB APP</h1>
+        <h2>"AI Fitness: Where Tech Meets Fitness"</h2>
+        <!-- <p>TRAIN THE FIGHTER IN YOU</p> -->
+        <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati, enim. Inventore atque voluptates reiciendis? Nam repellat maxime assumenda beatae aliquam!</p> -->
+        <a href="#Plans" class="btn">TRY IT OUT</a>
+    </header>
+
+    <section id="our-process">
+        <h2>OUR PROCESS</h2>
+        <div class="process">
+            <div class="process-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>ANIMATED VISUAL TRAINING</h3>
+            </div>
+            <div class="process-item">
+                <i class="fas fa-flask"></i>
+                <h3>WORK HARD ON IT</h3>
+            </div>
+            <div class="process-item">
+                <i class="fas fa-user-edit"></i>
+                <h3>VIRTUAL TECHNIQUES</h3>
+            </div>
+            <div class="process-item">
+                <i class="fas fa-gem"></i>
+                <h3>ACHIEVE YOUR DESTINY</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="athlete-facts">
+        <h2>ATHLETE FACTS</h2>
+        <div class="stats">
+            <div class="stat">
+                <i class="fas fa-square-full"></i>
+                <h3>2650</h3>
+                <p>SQM.</p>
+            </div>
+            <div class="stat">
+                <i class="fas fa-dumbbell"></i>
+                <h3>320+</h3>
+                <p>MACHINES</p>
+            </div>
+            <div class="stat">
+                <i class="fas fa-user-friends"></i>
+                <h3>354</h3>
+                <p>TRAINERS</p>
+            </div>
+            <div class="stat">
+                <i class="fas fa-swimmer"></i>
+                <h3>50</h3>
+                <p>METRES POOL</p>
+            </div>
+            <div class="stat">
+                <i class="fas fa-bolt"></i>
+                <h3>100</h3>
+                <p>M. TRACK</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Plans">
+        <h2> PLANS</h2>
+        <p>Go with the right one</p>
+        <div class="pricing">
+            <div class="pricing-plan">
+                <h2>Diamond</h2>
+                
+                <ul>
+                    <li>Chest</li>
+                    <li>Back</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Shoulder</li>
+                    <li>Cardio</li>
+                    <li>Neck</li>
+                    <li>Waist</li>
+                </ul>
+                <button onclick="window.location.href='Exercise.html'">TRY NOW</button>
+            </div>
+            <div class="pricing-plan featured">
+                <h2>Gold</h2>
+                
+                <ul>
+                    <li>Chest</li>
+                    <li>Back</li>
+                    <li>Legs</li>
+                    <li>Arms</li>
+                    <li>Shoulder</li>
+                    
+                </ul>
+                <button onclick="window.location.href='Exercise.html'">TRY NOW</button>
+            </div>
+            <div class="pricing-plan">
+                <h2>Silver</h2>
+                
+                <ul>
+                    <li>Chest</li>
+                    <li>Back</li>
+                    <li>Legs</li>
+                    
+                </ul>
+                <button onclick="window.location.href='Exercise.html'">TRY NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-process">
+        <h2>New Feature under Maintainence....(Virtual personal Workout) </h2>
+        <div class="process">
+            
+            </div>
+        </div>
+    </section>
+
+
+    <section id="MeetTheTeam">
+        <div class="heading-image">
+            <img src="bg.jpg" style="height: 100px; width: 300px; margin-left: 45%;" alt="Your Team's Name">
+        </div>
+        <div class="team-container">
+            <div class="team-member">
+            <img src="download (1).png" alt="Sai Tejas Kr">
+            <h3>Bharath L</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur, assumenda..</p>
+            <div class="social-links">
+                <a href="replace-with-linkedin-profile-url">
+                <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="replace-with-github-username-url">
+                <i class="fab fa-github"></i>
+                </a>
+                <a href="replace-with-instagram-handle-url">
+                <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            </div>
+            <div class="team-member">
+            <img src="person.png" alt="Suhas P R">
+            <h3>Nandan</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, enim.</p>
+            <div class="social-links">
+                <a href="replace-with-linkedin-profile-url">
+                <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="replace-with-github-username-url">
+                <i class="fab fa-github"></i>
+                </a>
+                <a href="replace-with-instagram-handle-url">
+                <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            </div>
+            <div class="team-member">
+            <img src="person.png" alt="Vishwas L">
+            <h3>Hariprasad </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quidem!</p>
+            <div class="social-links">
+                <a href="replace-with-linkedin-profile-url">
+                <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="replace-with-github-username-url">
+                <i class="fab fa-github"></i>
+                </a>
+                <a href="replace-with-instagram-handle-url">
+                <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            </div>
+            <div class="team-member">
+                <img src="person.png" alt="Vishwas L">
+                <h3>Teja Akhil Ram</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quidem!</p>
+                <div class="social-links">
+                <a href="replace-with-linkedin-profile-url">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="replace-with-github-username-url">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="replace-with-instagram-handle-url">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactUs">
+        <div class="contact-section">
+            <div class="contact-form">
+                <!-- Contact form content -->
+                <h2>CONTACT US</h2>
+                <p>We'd love to hear from you.</p>
+                <p>General inquiries, suggestions or comments, let us know!</p>
+                <form>
+                <input type="text" placeholder="First Name" />
+                <input type="text" placeholder="Last Name" />
+                <input type="email" placeholder="Email" />
+                <input type="tel" placeholder="Phone" />
+                <textarea placeholder="Message"></textarea>
+                <select>
+                    <option value="">How did you hear about us?</option>
+                    <option value="option1">Through Friend </option>
+                    <option value="option2">Social Media</option>
+                    <option value="option3">Connections</option>
+                </select>
+                <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+            <div class="social-links">
+                <!-- Social links -->
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 AiFitnessApp. All rights reserved.</p>
+    </footer>
+        
+            
+            
+    
+</body>
+</html>
